@@ -15,15 +15,15 @@
 
 ## 🌟 Visual Showcase & Demonstrations
 
-To evaluate the temporal stability and visual authenticity of **SG-VVTON**, we present unified side-by-side video demonstrations. Each clip displays the **Input Frames**, the **Target Garment**, and the synthesized **Output Frames** together, highlighting our model's performance across preprocessing extraction, dynamic human motion, severe anatomical occlusions, and complex lighting conditions.
+To evaluate the temporal stability and visual authenticity of **SG-VVTON**, we present unified side-by-side video demonstrations. Each clip displays the **Input Frames**, the **Target Garment Image**, and the synthesized **Output Frames** together, highlighting our model's performance across preprocessing extraction, dynamic human motion, severe anatomical occlusions, and complex lighting conditions.
 
 ---
 
 ### 1. Multimodal Preprocessing & Spatiotemporal Conditioning Signals
-Unlike static virtual try-on models, our pipeline explicitly extracts structured representations from unconstrained video frames before generative denoising. This module isolates exact clothing boundaries, preserves facial identity, and tracks kinematic motion trajectories without relying on optical flow estimation or auxiliary 3D simulators.
+Unlike static virtual try-on models, our pipeline explicitly extracts structured representations from unconstrained input video frames before generative denoising. This module isolates the subject's existing clothing boundaries from the video sequence, preserves facial identity, and tracks kinematic motion trajectories without relying on optical flow estimation or auxiliary 3D simulators.
 
-#### Demo 1: Extraction of SAM3 semantic garment masks, face bounding boxes, and ViTPose skeletal graphs
-*This demonstration visualizes our automated preprocessing pipeline: generating precise binary garment masks ($m_{\text{garment}}$), facial bounding boxes ($B_{\text{face}}$), and continuous whole-body kinematic motion signals ($C_{\text{pos}}$) across diverse video scenes.*
+#### Demo 1: Extraction of SAM3 semantic clothing masks, face bounding boxes, and ViTPose skeletal graphs from input videos
+*This demonstration visualizes our automated preprocessing pipeline: generating precise binary clothing masks ($m_{\text{garment}}$) and facial bounding boxes ($B_{\text{face}}$) from input video frames, alongside continuous whole-body kinematic motion signals ($C_{\text{pos}}$) across diverse scenes.*
 <div align="center">
   <video src="https://github.com/user-attachments/assets/f50800b5-83c0-46f3-84b7-9d9d39e57c97" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
@@ -31,10 +31,10 @@ Unlike static virtual try-on models, our pipeline explicitly extracts structured
 ---
 
 ### 2. Fine-Grained Detail Preservation & Photometric Adaptation
-Our framework regularizes the latent trajectory using structured negative textual constraints and CLIP-derived visual embeddings ($c_v$), combined with embedded LoRA adaptation layers. This ensures that intricate garment structures (such as high-frequency prints, ribbons, and weaves) are faithfully rendered without inter-frame blurring, while simultaneously adapting fabric shading, wrinkles, and shadows to the complex illumination of the scene—**all without auxiliary 3D physical simulators.**
+Our framework regularizes the latent trajectory using structured negative textual constraints and CLIP-derived visual embeddings ($c_v$) extracted from the target reference image, combined with embedded LoRA adaptation layers. This ensures that intricate garment structures (such as high-frequency prints, ribbons, and weaves) are faithfully rendered without inter-frame blurring, while simultaneously adapting fabric shading, wrinkles, and shadows to the complex illumination of the video scene—**all without auxiliary 3D physical simulators.**
 
 #### Demos 2 & 3: High-frequency pattern preservation, realistic ambient shading, and dynamic motion adaptation
-*As shown below, complex garment patterns and sharp prints remain visually authentic and spatially stable under dynamic locomotion (top), while ambient room lighting seamlessly interacts with the target apparel to generate natural shadows and folds across varying environments (bottom).*
+*As shown below, complex garment patterns and sharp prints from the reference image remain visually authentic and spatially stable under dynamic locomotion (top), while ambient room lighting seamlessly interacts with the target apparel to generate natural shadows and folds across varying environments (bottom).*
 <div align="center">
   <video src="https://github.com/user-attachments/assets/511a42c7-58bf-42f6-8cbc-549e85d706b0" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
@@ -49,7 +49,7 @@ Our framework regularizes the latent trajectory using structured negative textua
 By leveraging the robust generative priors of the 14B-parameter diffusion backbone, **SG-VVTON** generalizes seamlessly across diverse apparel categories and challenging, in-the-wild video footage (including broadcast clips and complex cinematic scenes).
 
 #### Demo 4: In-the-wild generalization across unconstrained broadcast and movie sequences
-*Our model accurately replaces garments across diverse body types and unconstrained backgrounds without introducing semantic drift, boundary artifacts, or temporal jitter.*
+*Our model accurately transfers reference garments onto diverse body types in unconstrained backgrounds without introducing semantic drift, boundary artifacts, or temporal jitter.*
 <div align="center">
   <video src="https://github.com/user-attachments/assets/0001c202-8a95-4033-abc2-2ff27dfd8825" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
@@ -60,7 +60,7 @@ By leveraging the robust generative priors of the 14B-parameter diffusion backbo
 A primary failure mode of existing video try-on methods is boundary hallucination when body parts or external objects obstruct the torso. By conditioning the diffusion trajectory on continuous skeletal graphs, our architecture maintains structural boundary integrity.
 
 #### Demo 5: Robust spatiotemporal coherence and identity preservation during severe topological occlusions
-*Even during complex human-object interactions—such as walking while holding coffee cups or crossing arms over the chest—the garment boundaries remain temporally stable without artifact accumulation.*
+*Even during complex human-object interactions—such as walking while holding coffee cups or crossing arms over the chest—the synthesized garment boundaries remain temporally stable without artifact accumulation.*
 <div align="center">
   <video src="https://github.com/user-attachments/assets/de3eb158-6354-4a03-8253-907fa762a134" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
@@ -72,9 +72,9 @@ A primary failure mode of existing video try-on methods is boundary hallucinatio
 While recent Video Virtual Try-On (VVTON) methods incorporate temporal attention modules, they frequently struggle to maintain visual fidelity and motion consistency simultaneously, often suffering from temporal instability and detail degradation under complex locomotion. 
 
 In this work, we propose **SG-VVTON**, an end-to-end generative framework that integrates discriminative vision backbones into a large-scale video diffusion architecture. Rather than relying on global feature diffusion or auxiliary 3D physical simulators, our pipeline:
-1. **Extracts deterministic skeletal priors** via **ViTPose** whole-body estimation to parameterize bodily dynamics.
-2. **Isolates semantic garment boundaries** using **SAM3** video segmentation to prevent boundary drift.
-3. **Directly conditions the denoising trajectory** of a **14B-parameter diffusion backbone (WAN 2.2)**, enforcing strict anatomical alignment and spatiotemporal coherence.
+1. **Extracts deterministic skeletal priors** via **ViTPose** whole-body estimation from the input video to parameterize bodily dynamics.
+2. **Isolates semantic clothing boundaries** using **SAM3** video segmentation on input frames to remove the original garment without boundary drift.
+3. **Directly conditions the denoising trajectory** of a **14B-parameter diffusion backbone (WAN 2.2)** using both video spatial guidance and reference garment visual embeddings, enforcing strict anatomical alignment and spatiotemporal coherence.
 
 Qualitative evaluations across unconstrained broadcast and real-world sequences demonstrate that our approach realistically synthesizes fluid fabric mechanics and ambient photometric shading, significantly mitigating prevalent artifacts such as inter-frame inconsistency, color shift, and the loss of fine-grained details over time.
 
@@ -84,23 +84,23 @@ Qualitative evaluations across unconstrained broadcast and real-world sequences 
 
 - **🔥 Scalable Latent Video Diffusion**: Synthesizes fluid fabric mechanics and complex non-linear deformations directly within the compressed latent space of a **14B-parameter Video DiT (WAN 2.2)** backbone.
 - **🦴 Dynamic Kinematic Guidance**: Eliminates inter-frame jitter and anatomical hallucinations by injecting continuous whole-body skeletal graphs ($C_{\text{pos}}$) from **ViTPose** directly into the conditioning tensor.
-- **🎯 Precise Semantic Mask Propagation**: Utilizes **SAM3** tracking to isolate the reference garment mask ($m_{\text{garment}}$), facial identity ($m_{\text{face}}$), and background context ($m_{\text{bg}}$), ensuring temporal boundary stability without spatial misalignment.
-- **💡 Multimodal Visual-Lexical Conditioning**: Employs **CLIP-Vision** texture embeddings ($c_v$) combined with structured positive/negative lexical prompts ($c_{\text{txt}}^+, c_{\text{txt}}^-$) via a Multi-Modal CFG formulation to eliminate color shift, anatomical distortion, and undesired transparency.
+- **🎯 Precise Semantic Mask Propagation**: Utilizes **SAM3** tracking on input video sequences to isolate the original clothing mask ($m_{\text{garment}}$), facial identity ($m_{\text{face}}$), and background context ($m_{\text{bg}}$), ensuring temporal boundary stability without spatial misalignment.
+- **💡 Multimodal Visual-Lexical Conditioning**: Employs **CLIP-Vision** texture embeddings ($c_v$) extracted directly from the static reference garment image, combined with structured positive/negative lexical prompts ($c_{\text{txt}}^+, c_{\text{txt}}^-$) via a Multi-Modal CFG formulation to eliminate color shift, anatomical distortion, and undesired transparency.
 - **⚡ Zero 3D Simulation Overhead**: Achieves realistic garment draping, wrinkle dynamics, and ambient photometric shading purely through generative diffusion, completely bypassing computationally expensive 3D mesh simulators or optical flow tracking modules.
 
 ---
 
 ## 🏗️ Methodology & Architecture Overview
 
-We formulate the VVTON task as a latent-space spatiotemporal conditional generation problem. Given an input video sequence $V \in \mathbb{R}^{T \times 3 \times H \times W}$, a target garment image $I_g \in \mathbb{R}^{3 \times H_g \times W_g}$, and an auxiliary textual prompt $P$, our framework approximates the conditional distribution:
+We formulate the VVTON task as a latent-space spatiotemporal conditional generation problem. Given an input video sequence $V \in \mathbb{R}^{T \times 3 \times H \times W}$, a target reference garment image $I_g \in \mathbb{R}^{3 \times H_g \times W_g}$, and an auxiliary textual prompt $P$, our framework approximates the conditional distribution:
 
 $$p_\theta(V \mid V_{\text{mask}}, C_{\text{kin}}, B_{\text{face}}, c_v, c_{\text{txt}})$$
 
 ### 1. Preprocessing & Feature Extraction Graph
 As illustrated in our pipeline architecture, the input modalities are processed through parallel discriminative branches:
-* **Spatiotemporal Masking ($V_{\text{mask}}$):** Binary masks from SAM3 are dilated, smoothed via a Gaussian filter, and inverted to isolate the garment region while preserving background and facial identity: $V_{\text{mask}, t} = V_t \odot M_{\text{cond}, t}$.
-* **Skeletal Rendering ($C_{\text{spatiotemporal}}$):** Skeletal landmarks from ViTPose are rendered as continuous skeleton graphs and concatenated with facial bounding box coordinates and masked video frames: $C_{\text{spatiotemporal}} = [V_{\text{mask}}, C_{\text{pos}}, B_{\text{face}}]$.
-* **Visual Texture Embedding ($c_v$):** A pre-trained CLIP-Vision encoder extracts high-frequency structural features and surface patterns directly from the reference garment: $c_v = E_{\text{CLIP-Vision}}(I_g)$.
+* **Spatiotemporal Masking of Input Video ($V_{\text{mask}}$):** Binary masks from SAM3 applied to input video frames are dilated, smoothed via a Gaussian filter, and inverted to isolate and remove the subject's original clothing while preserving background and facial identity: $V_{\text{mask}, t} = V_t \odot M_{\text{cond}, t}$.
+* **Skeletal Rendering ($C_{\text{spatiotemporal}}$):** Skeletal landmarks from ViTPose (extracted from the input video) are rendered as continuous skeleton graphs and concatenated with facial bounding box coordinates and masked video frames: $C_{\text{spatiotemporal}} = [V_{\text{mask}}, C_{\text{pos}}, B_{\text{face}}]$.
+* **Visual Texture Embedding of Target Image ($c_v$):** A pre-trained CLIP-Vision encoder extracts high-frequency structural features and surface patterns directly from the target reference garment image: $c_v = E_{\text{CLIP-Vision}}(I_g)$.
 
 ### 2. Latent Diffusion & Multi-Modal CFG
 The latent conditioning tensor $Z_{\text{cond}}$ (derived from encoding $C_{\text{spatiotemporal}}$ via a VAE) is concatenated with the noisy latent state $z_\tau$ along the channel dimension before entering the **14B-parameter DiT backbone (WAN 2.2)**. 
@@ -119,7 +119,7 @@ where $\omega \ge 1.0$ is the scaling factor controlling guidance intensity towa
 
 Stay tuned! Once published, this repository will include:
 - Complete PyTorch training and evaluation pipelines.
-- Automated preprocessing scripts for ViTPose skeletal rendering and SAM3 mask generation.
+- Automated preprocessing scripts for ViTPose skeletal rendering and SAM3 input video mask generation.
 - One-click inference scripts for custom video virtual try-on.
 - Pre-trained checkpoints and LoRA adaptation layers for WAN 2.2.
 
