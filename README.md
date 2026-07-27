@@ -22,27 +22,25 @@ To evaluate the temporal stability and visual authenticity of **SG-VVTON**, we p
 ### 1. Fine-Grained Detail Preservation & Complex Locomotion
 Our framework regularizes the latent trajectory using negative textual constraints and CLIP-derived visual embeddings, faithfully retaining intricate fabric patterns, embroidery, and weaves without blurring occluded boundaries over time.
 
-<div align="center">
-  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/1.mp4" width="85%" autoplay loop muted playsinline></video>
-  <p><i>Demo 1: High-frequency pattern preservation under dynamic human motion.</i></p>
-  <br>
-  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/2.mp4" width="85%" autoplay loop muted playsinline></video>
-  <p><i>Demo 2: Robust spatiotemporal coherence during severe anatomical occlusions.</i></p>
-</div>
+#### Demo 1: High-frequency pattern preservation under dynamic human motion
+https://github.com/MahdiKhSh/SG-VVTON/raw/main/1.mp4
+
+#### Demo 2: Robust spatiotemporal coherence during severe anatomical occlusions
+https://github.com/MahdiKhSh/SG-VVTON/raw/main/2.mp4
+
+---
 
 ### 2. Multi-Garment Generalization & Photometric Adaptation
 By incorporating embedded LoRA layers, the network dynamically adapts garment shading, wrinkles, and ambient shadows to complex scene illumination across diverse apparel categories—**all without requiring auxiliary 3D physical simulators.**
 
-<div align="center">
-  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/3.mp4" width="85%" autoplay loop muted playsinline></video>
-  <p><i>Demo 3: Photometric adaptation and realistic ambient shading.</i></p>
-  <br>
-  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/4.mp4" width="85%" autoplay loop muted playsinline></video>
-  <p><i>Demo 4: Generalization across complex apparel categories and unconstrained backgrounds.</i></p>
-  <br>
-  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/5.mp4" width="85%" autoplay loop muted playsinline></video>
-  <p><i>Demo 5: Seamless identity preservation and fabric mechanics.</i></p>
-</div>
+#### Demo 3: Photometric adaptation and realistic ambient shading
+https://github.com/MahdiKhSh/SG-VVTON/raw/main/3.mp4
+
+#### Demo 4: Generalization across complex apparel categories and unconstrained backgrounds
+https://github.com/MahdiKhSh/SG-VVTON/raw/main/4.mp4
+
+#### Demo 5: Seamless identity preservation and fabric mechanics
+https://github.com/MahdiKhSh/SG-VVTON/raw/main/5.mp4
 
 ---
 
