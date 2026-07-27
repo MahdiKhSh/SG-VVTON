@@ -3,6 +3,8 @@
 <div align="center">
 
 [![Paper](https://img.shields.io/badge/Paper-ACM%20%2F%20ArXiv-b31b1b.svg)](https://arxiv.org/abs/xxxx.xxxxx)
+[![Project Page](https://img.shields.io/badge/Project-Website-blue)](https://your-project-page.github.io)
+[![Hugging Face Demo](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-yellow)](https://huggingface.co/spaces/your-username/SG-VVTON)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![PyTorch 2.0+](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -42,16 +44,14 @@ Our framework regularizes the latent trajectory using structured negative textua
 ---
 
 ### 3. Photometric Adaptation & Multi-Garment Generalization
-By embedding trainable LoRA layers into the large-scale diffusion backbone, **SG-VVTON** dynamically adapts garment shading, surface wrinkles, and ambient shadows to the target scene's complex illumination.
+By incorporating embedded LoRA layers into the large-scale diffusion backbone, **SG-VVTON** generalizes robustly across diverse apparel categories and challenging, unconstrained video footage (including broadcast clips and complex cinematic scenes). The network dynamically adapts garment shading, surface wrinkles, and ambient shadows to complex environmental lighting—**all without requiring auxiliary 3D physical simulators.**
 
-#### Demo 3: Photometric adaptation and realistic ambient shading across varied lighting conditions
-*The synthesized garments seamlessly interact with ambient room lighting, generating natural fabric folds and shadows that match the environmental context.*
+#### Demos 3 & 4: Generalization across complex apparel categories, cinematic footage, and realistic ambient shading
+*The synthesized garments seamlessly interact with varying room illumination and dynamic backgrounds across multiple body types, generating natural fabric folds, shading, and shadows that perfectly match the ambient environmental context.*
 <div align="center">
   <video src="https://github.com/user-attachments/assets/4ae5a8f6-2f11-43c0-a772-3ad0e2a8e578" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
-
-#### Demo 4: In-the-wild generalization across unconstrained broadcast and movie sequences
-*Our model generalizes robustly to challenging, in-the-wild video footage (including broadcast clips and complex cinematic scenes), accurately replacing garments across diverse body types and dynamic backgrounds.*
+<br>
 <div align="center">
   <video src="https://github.com/user-attachments/assets/0001c202-8a95-4033-abc2-2ff27dfd8825" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
@@ -115,10 +115,26 @@ where $\omega \ge 1.0$ is the scaling factor controlling guidance intensity towa
 
 ---
 
-## 🛠️ Installation & Setup
+## 🛠️ Code Release & Setup
 
-### 1. Repository Setup
-Clone the repository and navigate into the project directory:
-```bash
-git clone [https://github.com/MahdiKhSh/SG-VVTON.git](https://github.com/MahdiKhSh/SG-VVTON.git)
-cd SG-VVTON
+> **📢 Announcement:** The full source code, pre-trained checkpoints, and detailed inference instructions are currently undergoing clean-up and internal peer-review. **The repository code will be made publicly available immediately after the paper is accepted.**
+
+Stay tuned! Once published, this repository will include:
+- Complete PyTorch training and evaluation pipelines.
+- Automated preprocessing scripts for ViTPose skeletal rendering and SAM3 mask generation.
+- One-click inference scripts for custom video virtual try-on.
+- Pre-trained checkpoints and LoRA adaptation layers for WAN 2.2.
+
+---
+
+## 📚 Citation
+
+If you find **SG-VVTON** useful for your research or applications, please consider citing our work:
+
+```bibtex
+@article{sgvvton2026,
+  title={SG-VVTON: Skeletal-Guided Diffusion for High-Fidelity and Temporally Coherent Video Virtual Try-On},
+  author={Your Name and Co-Authors},
+  journal={arXiv preprint arXiv:xxxx.xxxxx},
+  year={2026}
+}
