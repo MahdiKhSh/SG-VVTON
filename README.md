@@ -3,8 +3,6 @@
 <div align="center">
 
 [![Paper](https://img.shields.io/badge/Paper-ACM%20%2F%20ArXiv-b31b1b.svg)](https://arxiv.org/abs/xxxx.xxxxx)
-[![Project Page](https://img.shields.io/badge/Project-Website-blue)](https://your-project-page.github.io)
-[![Hugging Face Demo](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-yellow)](https://huggingface.co/spaces/your-username/SG-VVTON)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![PyTorch 2.0+](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -32,26 +30,26 @@ Unlike static virtual try-on models, our pipeline explicitly extracts structured
 
 ---
 
-### 2. Fine-Grained Detail Preservation & Complex Locomotion
-Our framework regularizes the latent trajectory using structured negative textual constraints and CLIP-derived visual embeddings ($c_v$). This ensures that intricate garment structures—such as high-frequency fabric weaves, embroidery, ribbons, and logos—are faithfully rendered without inter-frame blurring or warping degradation.
+### 2. Fine-Grained Detail Preservation & Photometric Adaptation
+Our framework regularizes the latent trajectory using structured negative textual constraints and CLIP-derived visual embeddings ($c_v$), combined with embedded LoRA adaptation layers. This ensures that intricate garment structures (such as high-frequency prints, ribbons, and weaves) are faithfully rendered without inter-frame blurring, while simultaneously adapting fabric shading, wrinkles, and shadows to the complex illumination of the scene—**all without auxiliary 3D physical simulators.**
 
-#### Demo 2: High-frequency pattern and texture preservation under dynamic human motion
-*As shown below, complex garment patterns (e.g., ribbon motifs and sharp prints) remain visually authentic and spatially stable as the subject moves freely within an office environment.*
+#### Demos 2 & 3: High-frequency pattern preservation, realistic ambient shading, and dynamic motion adaptation
+*As shown below, complex garment patterns and sharp prints remain visually authentic and spatially stable under dynamic locomotion (top), while ambient room lighting seamlessly interacts with the target apparel to generate natural shadows and folds across varying environments (bottom).*
 <div align="center">
   <video src="https://github.com/user-attachments/assets/511a42c7-58bf-42f6-8cbc-549e85d706b0" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
+</div>
+<br>
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/4ae5a8f6-2f11-43c0-a772-3ad0e2a8e578" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
 
 ---
 
-### 3. Photometric Adaptation & Multi-Garment Generalization
-By incorporating embedded LoRA layers into the large-scale diffusion backbone, **SG-VVTON** generalizes robustly across diverse apparel categories and challenging, unconstrained video footage (including broadcast clips and complex cinematic scenes). The network dynamically adapts garment shading, surface wrinkles, and ambient shadows to complex environmental lighting—**all without requiring auxiliary 3D physical simulators.**
+### 3. Multi-Garment Generalization in Unconstrained Videos
+By leveraging the robust generative priors of the 14B-parameter diffusion backbone, **SG-VVTON** generalizes seamlessly across diverse apparel categories and challenging, in-the-wild video footage (including broadcast clips and complex cinematic scenes).
 
-#### Demos 3 & 4: Generalization across complex apparel categories, cinematic footage, and realistic ambient shading
-*The synthesized garments seamlessly interact with varying room illumination and dynamic backgrounds across multiple body types, generating natural fabric folds, shading, and shadows that perfectly match the ambient environmental context.*
-<div align="center">
-  <video src="https://github.com/user-attachments/assets/4ae5a8f6-2f11-43c0-a772-3ad0e2a8e578" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
-</div>
-<br>
+#### Demo 4: In-the-wild generalization across unconstrained broadcast and movie sequences
+*Our model accurately replaces garments across diverse body types and unconstrained backgrounds without introducing semantic drift, boundary artifacts, or temporal jitter.*
 <div align="center">
   <video src="https://github.com/user-attachments/assets/0001c202-8a95-4033-abc2-2ff27dfd8825" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
