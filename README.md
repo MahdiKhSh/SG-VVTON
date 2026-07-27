@@ -3,8 +3,6 @@
 <div align="center">
 
 [![Paper](https://img.shields.io/badge/Paper-ACM%20%2F%20ArXiv-b31b1b.svg)](https://arxiv.org/abs/xxxx.xxxxx)
-[![Project Page](https://img.shields.io/badge/Project-Website-blue)](https://your-project-page.github.io)
-[![Hugging Face Demo](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-yellow)](https://huggingface.co/spaces/your-username/SG-VVTON)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![PyTorch 2.0+](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -125,23 +123,3 @@ where $\omega \ge 1.0$ is the scaling factor controlling guidance intensity towa
 ## 🛠️ Code Release & Setup
 
 > **📢 Announcement:** The full source code, pre-trained checkpoints, and detailed inference instructions are currently undergoing clean-up and internal peer-review. **The repository code will be made publicly available immediately after the paper is accepted.**
-
-Stay tuned! Once published, this repository will include:
-- Complete PyTorch training and evaluation pipelines.
-- Automated preprocessing scripts for ViTPose skeletal rendering and SAM3 input video mask generation.
-- One-click inference scripts for custom video virtual try-on.
-- Pre-trained checkpoints and LoRA adaptation layers for WAN 2.2.
-
----
-
-## 📚 Citation
-
-If you find **SG-VVTON** useful for your research or applications, please consider citing our work:
-
-```bibtex
-@article{sgvvton2026,
-  title={SG-VVTON: Skeletal-Guided Diffusion for High-Fidelity and Temporally Coherent Video Virtual Try-On},
-  author={Your Name and Co-Authors},
-  journal={arXiv preprint arXiv:xxxx.xxxxx},
-  year={2026}
-}
