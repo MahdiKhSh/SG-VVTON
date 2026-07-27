@@ -17,23 +17,32 @@
 
 ## 🌟 Visual Showcase & Demonstrations
 
-To evaluate the temporal stability and visual authenticity of **SG-VVTON**, we present side-by-side video comparisons under rapid human locomotion, severe topological occlusions, and complex lighting conditions. 
+To evaluate the temporal stability and visual authenticity of **SG-VVTON**, we present unified side-by-side video demonstrations. Each clip displays the **Input Frames**, the **Target Garment**, and the synthesized **Output Frames** together, highlighting performance under rapid locomotion, severe topological occlusions, and complex lighting conditions.
 
 ### 1. Fine-Grained Detail Preservation & Complex Locomotion
 Our framework regularizes the latent trajectory using negative textual constraints and CLIP-derived visual embeddings, faithfully retaining intricate fabric patterns, embroidery, and weaves without blurring occluded boundaries over time.
 
-| Input Video Sequence | Target Garment | Output Try-On Video (SG-VVTON) |
-| :---: | :---: | :---: |
-| <img src="assets/demo1_input.gif" width="260" alt="Input Video 1"/> | <img src="assets/demo1_garment.jpg" width="160" alt="Target Garment 1"/> | <img src="assets/demo1_output.gif" width="260" alt="Output Video 1"/> |
-| <img src="assets/demo2_input.gif" width="260" alt="Input Video 2"/> | <img src="assets/demo2_garment.jpg" width="160" alt="Target Garment 2"/> | <img src="assets/demo2_output.gif" width="260" alt="Output Video 2"/> |
+<div align="center">
+  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/1.mp4" width="85%" autoplay loop muted playsinline></video>
+  <p><i>Demo 1: High-frequency pattern preservation under dynamic human motion.</i></p>
+  <br>
+  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/2.mp4" width="85%" autoplay loop muted playsinline></video>
+  <p><i>Demo 2: Robust spatiotemporal coherence during severe anatomical occlusions.</i></p>
+</div>
 
 ### 2. Multi-Garment Generalization & Photometric Adaptation
 By incorporating embedded LoRA layers, the network dynamically adapts garment shading, wrinkles, and ambient shadows to complex scene illumination across diverse apparel categories—**all without requiring auxiliary 3D physical simulators.**
 
-| Input Video Sequence | Target Garment | Output Try-On Video (SG-VVTON) |
-| :---: | :---: | :---: |
-| <img src="assets/demo3_input.gif" width="260" alt="Input Video 3"/> | <img src="assets/demo3_garment.jpg" width="160" alt="Target Garment 3"/> | <img src="assets/demo3_output.gif" width="260" alt="Output Video 3"/> |
-| <img src="assets/demo4_input.gif" width="260" alt="Input Video 4"/> | <img src="assets/demo4_garment.jpg" width="160" alt="Target Garment 4"/> | <img src="assets/demo4_output.gif" width="260" alt="Output Video 4"/> |
+<div align="center">
+  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/3.mp4" width="85%" autoplay loop muted playsinline></video>
+  <p><i>Demo 3: Photometric adaptation and realistic ambient shading.</i></p>
+  <br>
+  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/4.mp4" width="85%" autoplay loop muted playsinline></video>
+  <p><i>Demo 4: Generalization across complex apparel categories and unconstrained backgrounds.</i></p>
+  <br>
+  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/5.mp4" width="85%" autoplay loop muted playsinline></video>
+  <p><i>Demo 5: Seamless identity preservation and fabric mechanics.</i></p>
+</div>
 
 ---
 
@@ -59,11 +68,6 @@ In this work, we propose **SG-VVTON**, an end-to-end generative framework that i
 
 ## 🏗️ Architecture Overview
 
-<div align="center">
-  <img src="assets/architecture.png" width="90%" alt="SG-VVTON Architecture"/>
-  <p><i>Figure 1: Overview of the SG-VVTON computational graph. Parallel preprocessing branches extract SAM3 masks, ViTPose skeletal graphs, and face bounding boxes to condition the 14B DiT backbone.</i></p>
-</div>
-
 The denoising trajectory is modulated at each timestep $\tau$ using our multi-modal Classifier-Free Guidance (CFG) formulation:
 
 $$\tilde{\epsilon}_\theta(z_\tau, \tau) = \epsilon_\theta(z_\tau, \tau, Z_{\text{cond}}, c_{\text{txt}}^-) + \omega \cdot \Big[ \epsilon_\theta(z_\tau, \tau, Z_{\text{cond}}, c_v, c_{\text{txt}}^+) - \epsilon_\theta(z_\tau, \tau, Z_{\text{cond}}, c_{\text{txt}}^-) \Big]$$
@@ -76,5 +80,5 @@ where $\omega \ge 1.0$ controls the guidance intensity toward the target garment
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/your-username/SG-VVTON.git](https://github.com/your-username/SG-VVTON.git)
+git clone [https://github.com/MahdiKhSh/SG-VVTON.git](https://github.com/MahdiKhSh/SG-VVTON.git)
 cd SG-VVTON
