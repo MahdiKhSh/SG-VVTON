@@ -24,12 +24,12 @@ Our framework regularizes the latent trajectory using negative textual constrain
 
 #### Demo 1: High-frequency pattern preservation under dynamic human motion
 <div align="center">
-  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/1.mp4" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
+  <video src="https://github.com/user-attachments/assets/f50800b5-83c0-46f3-84b7-9d9d39e57c97" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
 
 #### Demo 2: Robust spatiotemporal coherence during severe anatomical occlusions
 <div align="center">
-  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/2.mp4" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
+  <video src="https://github.com/user-attachments/assets/511a42c7-58bf-42f6-8cbc-549e85d706b0" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
 
 ---
@@ -39,17 +39,17 @@ By incorporating embedded LoRA layers, the network dynamically adapts garment sh
 
 #### Demo 3: Photometric adaptation and realistic ambient shading
 <div align="center">
-  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/3.mp4" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
+  <video src="https://github.com/user-attachments/assets/4ae5a8f6-2f11-43c0-a772-3ad0e2a8e578" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
 
 #### Demo 4: Generalization across complex apparel categories and unconstrained backgrounds
 <div align="center">
-  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/4.mp4" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
+  <video src="https://github.com/user-attachments/assets/0001c202-8a95-4033-abc2-2ff27dfd8825" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
 
 #### Demo 5: Seamless identity preservation and fabric mechanics
 <div align="center">
-  <video src="https://github.com/MahdiKhSh/SG-VVTON/raw/main/5.mp4" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
+  <video src="https://github.com/user-attachments/assets/de3eb158-6354-4a03-8253-907fa762a134" controls="controls" autoplay="autoplay" loop="loop" muted="muted" style="max-width: 100%; border-radius: 8px;"></video>
 </div>
 
 ---
